@@ -1,0 +1,20 @@
+﻿<Window x:Class="API2020.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:API2020"
+        mc:Ignorable="d"
+        Title="API2020" Height="350" Width="250" Background="#FFFFF6F6" Foreground="#FFD79C9C">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="btn_CreateBeam" Content="Создать балку" Height="34" FontSize="24" FontFamily="ISOCPEUR" Click="btn_CreateBeam_Click"/>
+            <Button x:Name="btn_CreatePlate" Content="Создать пластину" Height="34" FontSize="24" FontFamily="ISOCPEUR" Margin="10,5,10,0" Click="btn_CreatePlate_Click" />
+            <Button x:Name="btn_CreateAssembly" Content="Создать сборку" Height="34" FontSize="24" FontFamily="ISOCPEUR" Margin="10,5,10,0" Click="btn_CreateAssembly_Click" />
+            <Button x:Name="btn_MoveWorkPlane" Content="Переместить рабочую плоскость" Height="34" FontSize="16" FontFamily="ISOCPEUR" Margin="10,5,10,0" Click="btn_MoveWorkPlane_Click" />
+            <Button x:Name="btn_CreteDetail" Content="Вставить компонент" Height="34" FontSize="16" FontFamily="ISOCPEUR" Margin="10,5,10,0" Click="btn_CreteDetail_Click" />
+            <Button x:Name="btn_CreateWeldAndBolts" Content="Создать сварку и болты" Height="34" FontSize="16" FontFamily="ISOCPEUR" Margin="10,5,10,0" Click="btn_CreateWeldAndBolts_Click"/>
+            <Button x:Name="btn_CreateDrawing" Content="Создать чертеж" Height="34" FontSize="16" FontFamily="ISOCPEUR" Margin="10,5,10,0" Click="btn_CreateDrawing_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
