@@ -1,0 +1,16 @@
+C:\Users\LehaG\source\repos\NipLessons\WpfWeldedBeam\bin\Debug\WpfWeldedBeam.dll
+C:\Users\LehaG\source\repos\NipLessons\WpfWeldedBeam\bin\Debug\WpfWeldedBeam.pdb
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\MainWindow.g.cs
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam_MarkupCompile.cache
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam_MarkupCompile.lref
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\MainWindow.baml
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.g.resources
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.Properties.Resources.resources
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.csproj.GenerateResource.cache
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.csproj.CoreCompileInputs.cache
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.csproj.Fody.CopyLocal.cache
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.dll
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.pdb
+C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\GeneratedInternalTypeHelper.g.cs

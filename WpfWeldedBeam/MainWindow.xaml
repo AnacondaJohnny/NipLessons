@@ -1,0 +1,86 @@
+﻿<tsd:PluginWindowBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWeldedBeam"
+        xmlns:tsd="clr-namespace:Tekla.Structures.Dialog;assembly=Tekla.Structures.Dialog"
+        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog" x:Class="WpfWeldedBeam.MainWindow"
+        mc:Ignorable="d"
+        Title="WeldedBeam_EBS" MinHeight="650" MaxHeight="650" MaxWidth="800" MinWidth="800" Height="650" Width="800">
+    <tsd:PluginWindowBase.DataContext>
+        <local:MainWindowViewModel></local:MainWindowViewModel>
+    </tsd:PluginWindowBase.DataContext>
+    <Grid>
+        <!-- Разбиваем форму на строки -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!-- Определяем рабочие пространства для удобной компановки-->
+        <Grid Grid.Row="0">
+            <UIControls:WpfSaveLoad Height="48" Margin="0" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Image Source="Снимок экрана 2025-03-11 185250.png" HorizontalAlignment="Left" Height="487" Margin="256,10,0,-237.981" VerticalAlignment="Top" Width="330" MaxWidth="337" MaxHeight="487"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <!--Определение общих стилей интерфейса-->
+            <Grid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Height" Value="30"></Setter>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="Height" Value="30"></Setter>
+                </Style>
+                <Style TargetType="UIControls:WpfFilterCheckBox">
+                    <Setter Property="Height" Value="30"></Setter>
+                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </Grid.Resources>
+            <!--Заполнение представления-->
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox/>
+                    <Label Content="Высота балки" Width="145"/>
+                    <TextBox Text="{Binding BeamHeight}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox/>
+                    <Label Content="Ширина балки" Width="145"/>
+                    <TextBox Text="{Binding BeamWidth}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox/>
+                    <Label Content="Толщина стенки, t" Width="145"/>
+                    <TextBox Text="{Binding BeamWeb}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox/>
+                    <Label Content="Толщина полки, s" Width="145"/>
+                    <TextBox Text="{Binding BeamFlange}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox/>
+                    <Label Content="Материал" Width="145"/>
+                    <TextBox Text="{Binding BeamMaterial}" Width="60"/>
+                    <UIControls:WpfMaterialCatalog x:Name="MaterialCatalog" VerticalAlignment="Center" HorizontalAlignment="Center" SelectClicked="MaterialCatalog_SelectClicked" SelectionDone="MaterialCatalog_SelectionDone" ></UIControls:WpfMaterialCatalog>
+                </StackPanel>
+
+
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <UIControls:WpfOkApplyModifyGetOnOffCancel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ApplyClicked="WpfOkApplyModifyGetOnOffCancel_ApplyClicked" CancelClicked="WpfOkApplyModifyGetOnOffCancel_CancelClicked" GetClicked="WpfOkApplyModifyGetOnOffCancel_GetClicked" ModifyClicked="WpfOkApplyModifyGetOnOffCancel_ModifyClicked" OkClicked="WpfOkApplyModifyGetOnOffCancel_OkClicked" OnOffClicked="WpfOkApplyModifyGetOnOffCancel_OnOffClicked" />
+        </Grid>
+
+    </Grid>
+</tsd:PluginWindowBase>

@@ -27,7 +27,7 @@
         </Canvas>
         <UIControls:WpfSaveLoad  Width="582" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <UIControls:WpfOkApplyModifyGetOnOffCancel HorizontalAlignment="Stretch"  Grid.Row="3" VerticalAlignment="Stretch" ApplyClicked="WpfOkApplyModifyGetOnOffCancel_ApplyClicked" CancelClicked="WpfOkApplyModifyGetOnOffCancel_CancelClicked" GetClicked="WpfOkApplyModifyGetOnOffCancel_GetClicked" ModifyClicked="WpfOkApplyModifyGetOnOffCancel_ModifyClicked" OkClicked="WpfOkApplyModifyGetOnOffCancel_OkClicked" OnOffClicked="WpfOkApplyModifyGetOnOffCancel_OnOffClicked" />
-        <Image Margin="248,10.189,56.302,23.208" Source="Image1.png" Stretch="Fill" Grid.Row="1"/>
+        <Image Source="Image1.png"  Grid.Row="1" Margin="182,10.189,0,10.208" HorizontalAlignment="Left" Stretch="UniformToFill" Width="321"/>
 
         <Grid Grid.Row="2" >
             <Grid.Resources>
@@ -65,7 +65,7 @@
                     <UIControls:WpfMaterialCatalog x:Name="MaterialCatalog" SelectClicked="MaterialCatalog_SelectClicked" SelectionDone="MaterialCatalog_SelectionDone" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            
+
         </Grid>
     </Grid>
 </tsd:PluginWindowBase>
