@@ -14,3 +14,4 @@ C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.c
 C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.dll
 C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.pdb
 C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WpfWeldedBeam\GeneratedInternalTypeHelper.g.cs
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WpfWeldedBeam\WpfWeldedBeam.csproj.AssemblyReference.cache

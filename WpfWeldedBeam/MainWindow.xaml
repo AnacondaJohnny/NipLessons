@@ -47,27 +47,27 @@
             <!--Заполнение представления-->
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <UIControls:WpfFilterCheckBox/>
+                    <UIControls:WpfFilterCheckBox AttributeName="BeamHeight"/>
                     <Label Content="Высота балки" Width="145"/>
                     <TextBox Text="{Binding BeamHeight}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <UIControls:WpfFilterCheckBox/>
+                    <UIControls:WpfFilterCheckBox AttributeName="BeamWidth"/>
                     <Label Content="Ширина балки" Width="145"/>
                     <TextBox Text="{Binding BeamWidth}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <UIControls:WpfFilterCheckBox/>
+                    <UIControls:WpfFilterCheckBox AttributeName="BeamWeb"/>
                     <Label Content="Толщина стенки, t" Width="145"/>
                     <TextBox Text="{Binding BeamWeb}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <UIControls:WpfFilterCheckBox/>
+                    <UIControls:WpfFilterCheckBox AttributeName="BeamFlange"/>
                     <Label Content="Толщина полки, s" Width="145"/>
                     <TextBox Text="{Binding BeamFlange}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <UIControls:WpfFilterCheckBox/>
+                    <UIControls:WpfFilterCheckBox AttributeName="Material"/>
                     <Label Content="Материал" Width="145"/>
                     <TextBox Text="{Binding BeamMaterial}" Width="60"/>
                     <UIControls:WpfMaterialCatalog x:Name="MaterialCatalog" VerticalAlignment="Center" HorizontalAlignment="Center" SelectClicked="MaterialCatalog_SelectClicked" SelectionDone="MaterialCatalog_SelectionDone" ></UIControls:WpfMaterialCatalog>

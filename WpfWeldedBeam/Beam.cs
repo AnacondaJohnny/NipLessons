@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TSM = Tekla.Structures.Model;
 using TSG = Tekla.Structures.Geometry3d;
 
-namespace API2020
+namespace WpfWeldedBeam
 {
     public class Beam
     {
@@ -135,20 +135,26 @@ namespace API2020
             SetDefaultValue(startP, endP);
 
         }
-        public Beam(TSG.Point startP, TSG.Point endP, Iparameters parameter)
+        /// <summary>
+        /// Вызов балки через 2 точки и атрибуты
+        /// </summary>
+        /// <param name="startP">Начальная точка балки</param>
+        /// <param name="endP">Конечная точка балки</param>
+        /// <param name="parameter">Атрибуты балки</param>
+        public Beam(TSG.Point startP, TSG.Point endP, IBeamParameters parameter)
         {
             beam = new TSM.Beam(startP, endP);
             SetDefaultValue(startP, endP);
             SetParameters(parameter);
         }
 
-        private void SetParameters(Iparameters parameters) //метод 
+        private void SetParameters(IBeamParameters parameters) //метод 
         {
             beam.Name = parameters.Name;
             beam.Profile.ProfileString = parameters.Profile;
             beam.Material.MaterialString = parameters.Material;
             beam.Class = parameters.Color;
-            
+
         }
 
 
@@ -178,17 +184,44 @@ namespace API2020
             RotationOffset = 0;
 
         }
-        public TSM.Beam GetBeam() 
+        public TSM.Beam GetBeam()
         {
             return beam;
-            
+
         }
-        
+
+    }
+
+    public interface IBeamParameters //атрибуты для класса балки
+    {
+        string Name { get; set; }
+        string Material { get; set; }
+        string Profile { get; set; }
+        string Color { get; set; }
+
+    }
+
+    public struct BeamParameters : IBeamParameters
+    {
+        public string Name { get; set; }
+        public string Material { get; set; }
+        public string Profile { get; set; }
+        public string Color { get; set; }
 
         
-        
-            
-        
-
+        /// <summary>
+        /// Атрибуты балки
+        /// </summary>
+        /// <param name="name">Имя балки</param>
+        /// <param name="material">Материал балки</param>
+        /// <param name="profile">Профиль балки</param>
+        /// <param name="color">Класс балки</param>
+        public BeamParameters(string name = "Beam", string material = "C245", string profile = "200*300", string color = "1")
+        {
+            Name = name;
+            Material = material;
+            Profile = profile;
+            Color = color;
+        }
     }
 }
