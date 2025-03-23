@@ -10,17 +10,17 @@ namespace WpfWeldedBeam
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        [StructuresDialog("BeamHeight", typeof(TD.Integer))]
-        public int BeamHeight { get; set; } = 800;
+        [StructuresDialog("BeamHeight", typeof(TD.Double))]
+        public double BeamHeight { get; set; } = 800;
 
-        [StructuresDialog("BeamWidth", typeof(TD.Integer))]
-        public int BeamWidth { get; set; } = 300;
+        [StructuresDialog("BeamWidth", typeof(TD.Double))]
+        public double BeamWidth { get; set; } = 300;
 
-        [StructuresDialog("BeamFlange", typeof(TD.Integer))] //Полка балки
-        public int BeamFlange { get; set; } = 20;
+        [StructuresDialog("BeamFlange", typeof(TD.Double))] //Полка балки
+        public double BeamFlange { get; set; } = 20;
 
-        [StructuresDialog("BeamWeb", typeof(TD.Integer))] //Стенка балки
-        public int BeamWeb { get; set; } = 12;
+        [StructuresDialog("BeamWeb", typeof(TD.Double))] //Стенка балки
+        public double BeamWeb { get; set; } = 12;
 
         [StructuresDialog("Material", typeof(TD.String))]
         public string BeamMaterial { get; set; } = "C245";

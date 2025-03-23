@@ -17,16 +17,16 @@ namespace WpfWeldedBeam
     public class PluginData
     {
         [StructuresField("BeamHeight")]
-        public int beamHeight;
+        public double beamHeight;
 
         [StructuresField("BeamWidth")]
-        public int beamWidth;
+        public double beamWidth;
 
         [StructuresField("BeamFlange")]
-        public int beamFlange;
+        public double beamFlange;
 
         [StructuresField("BeamWeb")]
-        public int beamWeb;
+        public double beamWeb;
 
         [StructuresField("Material")]
         public string material;
@@ -71,15 +71,15 @@ namespace WpfWeldedBeam
                 wldBeam0.Insert();
 
                 Beam wldBeam1 = new Beam(startP, endP, beamParams);
-                wldBeam1.Profile = "400*20";
-                wldBeam1.PlaneOffset = 260;
+                wldBeam1.Profile = $"{Data.beamWidth}*{Data.beamFlange}";
+                wldBeam1.PlaneOffset = Data.beamHeight/2 - Data.beamFlange/2;
                 wldBeam1.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
                 wldBeam1.Insert();
 
                 Beam wldBeam2 = new Beam(startP, endP, beamParams);
-                wldBeam2.PlaneOffset = -260;
+                wldBeam2.PlaneOffset = -wldBeam1.PlaneOffset;
                 wldBeam2.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
-                wldBeam2.Profile = "400*20";
+                wldBeam2.Profile = wldBeam1.Profile;
                 wldBeam2.Insert();
 
                 TSM.Weld weld0 = new TSM.Weld();
