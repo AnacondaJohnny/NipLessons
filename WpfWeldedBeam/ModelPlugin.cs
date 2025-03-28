@@ -30,7 +30,12 @@ namespace WpfWeldedBeam
 
         [StructuresField("Material")]
         public string material;
-        
+
+        [StructuresField("WebClass")]
+        public string webClass;
+
+        [StructuresField("FlangeClass")]
+        public string flangeClass;
     }
 
 
@@ -38,7 +43,7 @@ namespace WpfWeldedBeam
 
     #endregion
 
-    // Определяем имя и ссылкаемся на интерфейс
+    // Определяем имя и ссылаемся на интерфейс
     [Plugin("WeldedBeam_EBS")]
     [PluginUserInterface("WpfWeldedBeam.MainWindow")]
     [CustomPartPositioningType(CustomPartPositioningType.POSITIONING_BY_INPUTPOINTS)]
@@ -61,10 +66,13 @@ namespace WpfWeldedBeam
 
             try
             {
+                #region 2 точки построения детали
                 TSG.Point startP = new TSG.Point(this.Positions[0]);
                 TSG.Point endP = new TSG.Point(this.Positions[1]);
+                #endregion
 
-                IBeamParameters beamParams = new BeamParameters("Сварная балка",material: Data.material, profile: $"{Data.beamWeb}*{Data.beamHeight - 2*Data.beamFlange}", color: "3");
+                #region Определяем 3 балки (3 сварных листа)
+                IBeamParameters beamParams = new BeamParameters("Сварная балка", material: Data.material, profile: $"{Data.beamWeb}*{Data.beamHeight - 2 * Data.beamFlange}", color: $"{Data.webClass}");
 
                 Beam wldBeam0 = new Beam(startP, endP, beamParams);
                 wldBeam0.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
@@ -72,16 +80,20 @@ namespace WpfWeldedBeam
 
                 Beam wldBeam1 = new Beam(startP, endP, beamParams);
                 wldBeam1.Profile = $"{Data.beamWidth}*{Data.beamFlange}";
-                wldBeam1.PlaneOffset = Data.beamHeight/2 - Data.beamFlange/2;
+                wldBeam1.PlaneOffset = Data.beamHeight / 2 - Data.beamFlange / 2;
                 wldBeam1.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
+                wldBeam1.Color = Data.flangeClass;
                 wldBeam1.Insert();
 
                 Beam wldBeam2 = new Beam(startP, endP, beamParams);
                 wldBeam2.PlaneOffset = -wldBeam1.PlaneOffset;
                 wldBeam2.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
                 wldBeam2.Profile = wldBeam1.Profile;
+                wldBeam2.Color = Data.flangeClass;
                 wldBeam2.Insert();
+                #endregion
 
+                #region Привариваем балки друг к другу
                 TSM.Weld weld0 = new TSM.Weld();
                 weld0.MainObject = wldBeam0.GetBeam();
                 weld0.SecondaryObject = wldBeam1.GetBeam();
@@ -96,10 +108,10 @@ namespace WpfWeldedBeam
 
                 weld0.SecondaryObject = wldBeam2.GetBeam();
                 weld0.Insert();
-
+                #endregion
 
                 Model.CommitChanges();
-
+                
 
 
             }

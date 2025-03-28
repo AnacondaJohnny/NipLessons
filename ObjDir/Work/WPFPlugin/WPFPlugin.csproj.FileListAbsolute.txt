@@ -1,0 +1,2 @@
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\Work\WPFPlugin\WPFPlugin.csproj.AssemblyReference.cache
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\Work\WPFPlugin\WPFPlugin_MarkupCompile.cache

@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfWeldedBeam"
         xmlns:tsd="clr-namespace:Tekla.Structures.Dialog;assembly=Tekla.Structures.Dialog"
-        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog" x:Class="WpfWeldedBeam.MainWindow"
+        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog" 
+        x:Class="WpfWeldedBeam.MainWindow"
         mc:Ignorable="d"
-        Title="WeldedBeam_EBS" MinHeight="650" MaxHeight="650" MaxWidth="800" MinWidth="800" Height="650" Width="800">
-    <tsd:PluginWindowBase.DataContext>
+        Title="WeldedBeam_EBS" 
+        MinHeight="650" 
+        MaxHeight="650" 
+        MaxWidth="800"
+        MinWidth="800"
+        Height="650"
+        Width="800">
+    <!--<tsd:PluginWindowBase.DataContext>
         <local:MainWindowViewModel></local:MainWindowViewModel>
-    </tsd:PluginWindowBase.DataContext>
+    </tsd:PluginWindowBase.DataContext>-->
+    <d:UserControl.DataContext>
+        <local:MainWindowViewModel />
+    </d:UserControl.DataContext>
     <Grid>
         <!-- Разбиваем форму на строки -->
         <Grid.RowDefinitions>
@@ -26,7 +36,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Image Source="Снимок экрана 2025-03-11 185250.png" HorizontalAlignment="Left" Height="487" Margin="256,10,0,-237.981" VerticalAlignment="Top" Width="330" MaxWidth="337" MaxHeight="487"/>
+            <Image Source="Снимок экрана 2025-03-11 185250.png" HorizontalAlignment="Left" Height="487" Margin="330,10,0,-237" VerticalAlignment="Top" Width="330" MaxWidth="337" MaxHeight="487"/>
 
         </Grid>
 
@@ -49,28 +59,38 @@
                 <StackPanel Orientation="Horizontal">
                     <UIControls:WpfFilterCheckBox AttributeName="BeamHeight"/>
                     <Label Content="Высота балки" Width="145"/>
-                    <TextBox Text="{Binding BeamHeight}" Width="60"/>
+                    <TextBox Text="{Binding BeamHeight, Mode=TwoWay}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <UIControls:WpfFilterCheckBox AttributeName="BeamWidth"/>
                     <Label Content="Ширина балки" Width="145"/>
-                    <TextBox Text="{Binding BeamWidth}" Width="60"/>
+                    <TextBox Text="{Binding BeamWidth, Mode=TwoWay}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <UIControls:WpfFilterCheckBox AttributeName="BeamWeb"/>
                     <Label Content="Толщина стенки, t" Width="145"/>
-                    <TextBox Text="{Binding BeamWeb}" Width="60"/>
+                    <TextBox Text="{Binding BeamWeb, Mode=TwoWay}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <UIControls:WpfFilterCheckBox AttributeName="BeamFlange"/>
                     <Label Content="Толщина полки, s" Width="145"/>
-                    <TextBox Text="{Binding BeamFlange}" Width="60"/>
+                    <TextBox Text="{Binding BeamFlange, Mode=TwoWay}" Width="60"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <UIControls:WpfFilterCheckBox AttributeName="Material"/>
                     <Label Content="Материал" Width="145"/>
-                    <TextBox Text="{Binding BeamMaterial}" Width="60"/>
+                    <TextBox Text="{Binding BeamMaterial, Mode=TwoWay}" Width="60"/>
                     <UIControls:WpfMaterialCatalog x:Name="MaterialCatalog" VerticalAlignment="Center" HorizontalAlignment="Center" SelectClicked="MaterialCatalog_SelectClicked" SelectionDone="MaterialCatalog_SelectionDone" ></UIControls:WpfMaterialCatalog>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox AttributeName="WebClass"/>
+                    <Label Content="Класс стенки" Width="145"/>
+                    <TextBox Text="{Binding WebClass, Mode=TwoWay}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <UIControls:WpfFilterCheckBox AttributeName="FlangeClass"/>
+                    <Label Content="Класс полки" Width="145"/>
+                    <TextBox Text="{Binding FlangeClass, Mode=TwoWay}" Width="60"/>
                 </StackPanel>
 
 

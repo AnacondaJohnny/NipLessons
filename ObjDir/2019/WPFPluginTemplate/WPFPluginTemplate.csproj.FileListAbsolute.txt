@@ -15,3 +15,4 @@ C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WPFPluginTemplate\WPFPluginTe
 C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WPFPluginTemplate\WPFPluginTemplate.pdb
 C:\Users\LehaG\source\repos\NipLessons\WPFPluginTemplate\bin\Debug\WPFPluginTemplate.ail
 C:\Users\LehaG\source\repos\NipLessons\ObjDir\2019\WPFPluginTemplate\GeneratedInternalTypeHelper.g.cs
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPluginTemplate\WPFPluginTemplate.csproj.AssemblyReference.cache

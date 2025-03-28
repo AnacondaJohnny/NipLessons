@@ -1,0 +1,12 @@
+C:\Users\LehaG\Source\Repos\NipLessons\WPFPlugin\bin\Debug\WPFPlugin.dll
+C:\Users\LehaG\Source\Repos\NipLessons\WPFPlugin\bin\Debug\WPFPlugin.pdb
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\MainWindow.g.cs
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin_MarkupCompile.cache
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin_MarkupCompile.lref
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\MainWindow.baml
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin.g.resources
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin.Properties.Resources.resources
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin.csproj.GenerateResource.cache
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin.csproj.CoreCompileInputs.cache
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin.dll
+C:\Users\LehaG\Source\Repos\NipLessons\ObjDir\2019\WPFPlugin\WPFPlugin.pdb

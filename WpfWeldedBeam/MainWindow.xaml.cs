@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TSDI = Tekla.Structures.Dialog;
+using TSM = Tekla.Structures.Model;
 
 namespace WpfWeldedBeam
 {
@@ -20,16 +21,25 @@ namespace WpfWeldedBeam
 
     public partial class MainWindow : TSDI.PluginWindowBase
     {
+
+        
         MainWindowViewModel dataViewModel { get; set; }
+
+
         public MainWindow(MainWindowViewModel viewModel)
         {
+            
             InitializeComponent();
             dataViewModel = viewModel;
+            
         }
+
+
         #region Панель ИЗМ/ПРИМ/ОК/ОТМЕНА
         private void WpfOkApplyModifyGetOnOffCancel_ApplyClicked(object sender, EventArgs e)
         {
             this.Apply();
+            
         }
 
         private void WpfOkApplyModifyGetOnOffCancel_CancelClicked(object sender, EventArgs e)
@@ -39,7 +49,10 @@ namespace WpfWeldedBeam
 
         private void WpfOkApplyModifyGetOnOffCancel_GetClicked(object sender, EventArgs e)
         {
+            
             this.Get();
+            
+            
         }
 
         private void WpfOkApplyModifyGetOnOffCancel_ModifyClicked(object sender, EventArgs e)
