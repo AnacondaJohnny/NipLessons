@@ -95,8 +95,18 @@
 
 
 
-            </StackPanel>
-        </Grid>
+        
+        
+        <Image Source="Снимок экрана 2025-03-11 185250.png"
+       HorizontalAlignment="Left"
+       Height="487"
+       Margin="378,0,0,0"
+       VerticalAlignment="Center"
+       Width="323"
+       MaxWidth="337"
+       MaxHeight="487"
+       Panel.ZIndex="10" Grid.RowSpan="2" Grid.Row="1"/>
+
 
         <Grid Grid.Row="3">
             <UIControls:WpfOkApplyModifyGetOnOffCancel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ApplyClicked="WpfOkApplyModifyGetOnOffCancel_ApplyClicked" CancelClicked="WpfOkApplyModifyGetOnOffCancel_CancelClicked" GetClicked="WpfOkApplyModifyGetOnOffCancel_GetClicked" ModifyClicked="WpfOkApplyModifyGetOnOffCancel_ModifyClicked" OkClicked="WpfOkApplyModifyGetOnOffCancel_OkClicked" OnOffClicked="WpfOkApplyModifyGetOnOffCancel_OnOffClicked" />
