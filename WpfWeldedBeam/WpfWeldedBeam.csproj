@@ -125,11 +125,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Снимок экрана 2025-03-11 185250.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Снимок экрана 2025-03-11 185250.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetPath)" "C:\TeklaStructures\2020.0\Environments\common\extensions" /R /Y</PostBuildEvent>

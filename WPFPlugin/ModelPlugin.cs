@@ -38,6 +38,8 @@ namespace WPFPlugin
         [StructuresField("lengthfactor")]
         public int lengthfactor;
 
+        [StructuresField("angle1")]
+        public double Angle1;
         #endregion
     }
 
@@ -56,6 +58,7 @@ namespace WPFPlugin
         private string _Material = string.Empty;
         private double _Offset = 0.0;
         private int _LengthFactor = 0;
+        private double _Angle1 = 0;
         #endregion
 
         #region Properties
@@ -121,8 +124,23 @@ namespace WPFPlugin
                 beam.Material.MaterialString = _Material;
                 beam.Insert();
 
+
+                #region Моделируем поворот балки через Tekla.Structures.Model.Operation
+                double angle1 = _Angle1 / ((double)180 / Math.PI); //приводим угол поворота к радианам
+
+                TSG.CoordinateSystem coordSys1 = new TSG.CoordinateSystem(beam.GetCoordinateSystem().Origin, beam.GetCoordinateSystem().AxisX, beam.GetCoordinateSystem().AxisY);
+                TSG.Matrix rotationMatrix = TSG.MatrixFactory.Rotate(angle1, beam.GetCoordinateSystem().AxisX); //Создаем матрицу поворота
+
+                TSG.Point pointNew1 = rotationMatrix.Transform(beam.GetCoordinateSystem().AxisY); //Применяем матрицу к оси Y
+                TSG.CoordinateSystem coordSys2 = new TSG.CoordinateSystem(new TSG.Point(0, 0, 0), beam.GetCoordinateSystem().AxisX, new TSG.Vector(pointNew1));//Применяем поворот к координатной системе 
+
+                
+                Operation.MoveObject(beam, coordSys1, coordSys2);
+                #endregion
+
                 Operation.DisplayPrompt("Selected component " + _Data.componentname + " : " + _Data.componentnumber.ToString());
 
+                
             }
             catch (Exception Exc)
             {
@@ -144,6 +162,7 @@ namespace WPFPlugin
             _Material = Data.material;
             _Offset = Data.offset;
             _LengthFactor = Data.lengthfactor + 1;
+            _Angle1 = Data.Angle1;
 
             if (IsDefaultValue(_PartName))
                 _PartName = "TEST";
@@ -154,7 +173,9 @@ namespace WPFPlugin
             if (IsDefaultValue(_Offset))
                 _Offset = 0;
             if (IsDefaultValue(_LengthFactor) || _LengthFactor == 0)
-                _Offset = 1;
+                _LengthFactor = 1;
+            if (IsDefaultValue(_Angle1))
+                _Angle1 = 0;
         }
 
         // Write your private methods here.

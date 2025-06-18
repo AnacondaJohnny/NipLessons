@@ -11,9 +11,9 @@
     Height="355"
     HorizontalAlignment="Stretch"
     mc:Ignorable="d">
-    <d:UserControl.DataContext>
+    <!-- <d:UserControl.DataContext>
         <local:MainWindowViewModel />
-    </d:UserControl.DataContext>
+    </d:UserControl.DataContext>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="48" />
@@ -93,6 +93,20 @@
                     VerticalAlignment="Center"
                     SelectClicked="profileCatalog_SelectClicked"
                     SelectionDone="profileCatalog_SelectionDone" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <Label
+                    Width="120"
+                    Height="30"
+                    Content="Угол поворота"
+                    />
+                <UIControls:WpfFilterCheckBox VerticalAlignment="Center" AttributeName="angle1"/>
+                <TextBox
+                    Width="120"
+                    Height="23"
+                    VerticalAlignment="Center"
+                    Text="{Binding Angle1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    />
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <Label

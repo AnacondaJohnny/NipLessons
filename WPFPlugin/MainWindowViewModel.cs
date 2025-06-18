@@ -16,6 +16,7 @@ namespace WPFPlugin
         private string componentname = string.Empty;
         private int componentnumber = 0;
         private int lengthfactor = 0;
+        private double angle1 = 0;
         #endregion
 
         #region Properties
@@ -60,6 +61,13 @@ namespace WPFPlugin
         {
             get { return lengthfactor; }
             set { lengthfactor = value; OnPropertyChanged("LengthFactor"); }
+        }
+
+        [StructuresDialog("angle1", typeof(TD.Double))]
+        public double Angle1
+        {
+            get { return angle1; }
+            set { angle1 = value; OnPropertyChanged("Angle1"); }
         }
 
         #endregion

@@ -36,6 +36,18 @@ namespace WpfWeldedBeam
 
         [StructuresField("FlangeClass")]
         public string flangeClass;
+
+        [StructuresField("Angle1")]
+        public double angle1;
+
+        [StructuresField("VerticalOffset")]
+        public double verticalOffset;
+
+        [StructuresField("HorizontalOffset")]
+        public double horizontalOffset;
+
+        [StructuresField("AssemblyPrefix")]
+        public string assemblyPrefix;
     }
 
 
@@ -66,6 +78,7 @@ namespace WpfWeldedBeam
 
             try
             {
+                GetValuesFromDialog();
                 #region 2 точки построения детали
                 TSG.Point startP = new TSG.Point(this.Positions[0]);
                 TSG.Point endP = new TSG.Point(this.Positions[1]);
@@ -76,18 +89,26 @@ namespace WpfWeldedBeam
 
                 Beam wldBeam0 = new Beam(startP, endP, beamParams);
                 wldBeam0.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
+                wldBeam0.RotationOffset = Data.angle1;
+                wldBeam0.DepthOffset = Data.horizontalOffset;
+                wldBeam0.PlaneOffset = Data.verticalOffset;
+                wldBeam0.AssemblyPrefix = Data.assemblyPrefix;
                 wldBeam0.Insert();
 
                 Beam wldBeam1 = new Beam(startP, endP, beamParams);
                 wldBeam1.Profile = $"{Data.beamWidth}*{Data.beamFlange}";
-                wldBeam1.PlaneOffset = Data.beamHeight / 2 - Data.beamFlange / 2;
+                wldBeam1.PlaneOffset = Data.beamHeight / 2 - Data.beamFlange / 2 + Data.verticalOffset ;
+                wldBeam1.DepthOffset = Data.horizontalOffset;
                 wldBeam1.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
+                wldBeam1.RotationOffset = Data.angle1;
                 wldBeam1.Color = Data.flangeClass;
                 wldBeam1.Insert();
 
                 Beam wldBeam2 = new Beam(startP, endP, beamParams);
-                wldBeam2.PlaneOffset = -wldBeam1.PlaneOffset;
+                wldBeam2.PlaneOffset = -wldBeam1.PlaneOffset + 2*Data.verticalOffset;
+                wldBeam2.DepthOffset = Data.horizontalOffset;
                 wldBeam2.DepthEnum = TSM.Position.DepthEnum.MIDDLE;
+                wldBeam2.RotationOffset = Data.angle1;
                 wldBeam2.Profile = wldBeam1.Profile;
                 wldBeam2.Color = Data.flangeClass;
                 wldBeam2.Insert();
@@ -124,6 +145,20 @@ namespace WpfWeldedBeam
 
 
             return true;
+        }
+        private void GetValuesFromDialog()
+        {
+            if (IsDefaultValue(Data.beamHeight)) Data.beamHeight = 800;
+            if (IsDefaultValue(Data.beamWidth)) Data.beamWidth = 400;
+            if (IsDefaultValue(Data.beamFlange)) Data.beamFlange = 10;
+            if (IsDefaultValue(Data.beamWeb)) Data.beamWeb = 14;
+            if (IsDefaultValue(Data.material)) Data.material = "Steel_Undefined";
+            if (IsDefaultValue(Data.webClass)) Data.webClass = "1";
+            if (IsDefaultValue(Data.flangeClass)) Data.flangeClass = "2";
+            if (IsDefaultValue(Data.angle1)) Data.angle1 = 0;
+            if (IsDefaultValue(Data.verticalOffset)) Data.verticalOffset = 0;
+            if (IsDefaultValue(Data.horizontalOffset)) Data.horizontalOffset = 0;
+            if (IsDefaultValue(Data.assemblyPrefix)) Data.assemblyPrefix = "Б";
         }
     }
 }

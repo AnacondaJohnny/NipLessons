@@ -31,7 +31,11 @@ namespace WpfWeldedBeam
             
             InitializeComponent();
             dataViewModel = viewModel;
-            
+
+            this.DataContext = dataViewModel;
+            var oldContext1 = this.DataContext;
+            this.DataContext = null;
+            this.DataContext = oldContext1;
         }
 
 
@@ -51,8 +55,11 @@ namespace WpfWeldedBeam
         {
             
             this.Get();
-            
-            
+
+            var oldContext1 = this.DataContext;
+            this.DataContext = null;
+            this.DataContext = oldContext1;
+
         }
 
         private void WpfOkApplyModifyGetOnOffCancel_ModifyClicked(object sender, EventArgs e)

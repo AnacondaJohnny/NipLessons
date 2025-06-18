@@ -11,14 +11,17 @@ namespace WpfWeldedBeam
     public class MainWindowViewModel : BaseViewModel
     {
 
-        double beamHeight = 0;
-        double beamWidth = 0;
-        double beamFlange = 0;
-        double beamWeb = 0;
-        string beamMaterial = string.Empty;
-        string webClass = string.Empty;
-        string flangeClass = string.Empty;
-
+        private double beamHeight = 0;
+        private double beamWidth = 0;
+        private double beamFlange = 0;
+        private double beamWeb = 0;
+        private string beamMaterial = string.Empty;
+        private string webClass = string.Empty;
+        private string flangeClass = string.Empty;
+        private double angle1 = 0;
+        private double verticalOffset = 0;
+        private double horizontalOffset = 0;
+        private string assemblyPrefix = string.Empty;
 
 
 
@@ -78,6 +81,35 @@ namespace WpfWeldedBeam
         {
             get { return flangeClass; }
             set { flangeClass = value; OnPropertyChanged("FlangeClass"); }
+
+        }
+
+        [StructuresDialog("Angle1", typeof(TD.Double))]
+        public double Angle1
+        {
+            get { return angle1; }
+            set { angle1 = value; OnPropertyChanged("Angle1"); }
+        }
+
+        [StructuresDialog("VerticalOffset", typeof(TD.Double))]
+        public double VerticalOffset
+        {
+            get { return verticalOffset; }
+            set { verticalOffset = value; OnPropertyChanged("VerticalOffset"); }
+        }
+
+        [StructuresDialog("HorizontalOffset", typeof(TD.Double))]
+        public double HorizontalOffset
+        {
+            get { return horizontalOffset; }
+            set { horizontalOffset = value; OnPropertyChanged("HorizontalOffset"); }
+        }
+
+        [StructuresDialog("AssemblyPrefix", typeof(TD.String))]
+        public string AssemblyPrefix
+        {
+            get { return assemblyPrefix; }
+            set { assemblyPrefix = value; OnPropertyChanged("AssemblyPrefix"); }
 
         }
 

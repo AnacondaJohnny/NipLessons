@@ -23,23 +23,22 @@ namespace WPFPlugin
 
             InitializeComponent();
             dataModel = DataModel;
-            UpdateLayout();
+           
 
-            var oldContext = this.DataContext;
+            //Принудительно сбрасываем DataContext
+            this.DataContext = dataModel;
+            var oldContext1 = this.DataContext;
             this.DataContext = null;
-            this.DataContext = oldContext;
-
-            //OkApplyModifyGetOnOffCancel.GetClicked += new EventHandler(WPFOkApplyModifyGetOnOffCancel_GetClicked_1);
-
-            //BindingOperations.GetBindingExpressionBase(partNameTextBox, TextBox.TextProperty).UpdateTarget();
+            this.DataContext = oldContext1;
 
 
 
-
-
+            Get();
+            //this.Initialized += WPFOkApplyModifyGetOnOffCancel_GetClicked;
+           
         }
 
-        
+       
 
         private void WPFOkApplyModifyGetOnOffCancel_ApplyClicked(object sender, EventArgs e)
         {
@@ -53,12 +52,12 @@ namespace WPFPlugin
 
         private void WPFOkApplyModifyGetOnOffCancel_GetClicked(object sender, EventArgs e)
         {
-            var oldContext = this.DataContext;
-            this.DataContext = null;
-            this.DataContext = oldContext;
             this.Get();
 
-
+            var oldContext1 = this.DataContext;
+            this.DataContext = null;
+            this.DataContext = oldContext1;
+            ReloadWindow();
         }
        
 
@@ -108,5 +107,7 @@ namespace WPFPlugin
             this.dataModel.ComponentName = this.componentCatalog.SelectedName;
             this.dataModel.ComponentNumber = this.componentCatalog.SelectedNumber;
         }
+
+        
     }
 }
